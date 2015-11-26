@@ -84,5 +84,38 @@ object List {
 
 		if(l == Nil) l
 		else go(l,f)
-	}	
+	}
+
+	/*
+	* Exercise 3.6 - Function init should return a List consisting
+	* of all but the last element of a given List.
+	*
+	*	Test Case:
+	*		val x = List(1,2,3,4,5,6)
+	*		List.init(x)
+	*
+	*	Expected Output:
+	*		List[Int] = Cons(1,Cons(2,Cons(3, Cons(4, Cons(5,Nil)))))
+	*
+	*
+	* Special Note:
+	* 	After checking the solutions available, I realized I could have
+	* 	done this with less lines of code and without using a new list.
+	*	It would become a pure function but not tail recursive.
+	*/
+
+	def init[A](l: List[A]) : List[A] = {
+		def appendElem(nl: List[A], elem: A): List[A] = nl match {
+			case Nil => Cons(elem,Nil)
+			case Cons(h,t) => Cons(h,appendElem(t,elem))
+		}
+		def rmlast(nl: List[A], sl: List[A]) : List[A] = nl match{
+			case Nil => Nil
+			case Cons(h,Nil) => sl
+			case Cons(h,t) => rmlast(List.tail(nl),appendElem(sl,h))
+		}
+		if(l == Nil) l
+		else rmlast(l,List[A]())
+	}
+
 }
