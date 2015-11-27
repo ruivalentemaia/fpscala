@@ -123,4 +123,76 @@ object List {
 		else rmlast(l,List[A]())
 	}
 
+	/*
+	* Exercise 3.7 - Can product, implemented using foldRight,
+	* immediately halt the recursion and return 0.0 if it encounters
+	* a 0.0 ?
+	*	Answer: according to my implementation, yes.
+	*
+	* Test Case:
+	*	1)
+	*	val x = List(1.0,2.0,3.0,4.0,0.0,5.0,6.0)
+	*	List.productHalt(x)
+	*
+	* 	Expected Output: 0.0
+	*
+	*	2)
+	*	val x = List(1.0,2.0,5.0)
+	*	List.productHalt(x)
+	*
+	*	Expected Output: 10.0	
+	*/
+	def foldRight[A,B](as: List[A], z: B)(f: (A,B) => B) : B =
+		as match {
+			case Nil => z
+			case Cons(x,xs) => f(x, foldRight(xs, z)(f))
+		}
+
+	def sumFold(ns: List[Int]) =
+		foldRight(ns, 0)((x,y) => x + y)
+
+
+	def productFold(ns:List[Double]) =
+		foldRight(ns, 1.0)((x,y) => x*y)
+
+	def productHalt(ns:List[Double]) =
+		ns match {
+			case Nil => foldRight(Nil,1.0)((x,y) => x)
+			case Cons(h,t) => {
+				if(h == 0.0) foldRight(Nil, 0.0)((x,y) => x)
+				else foldRight(ns,1.0)((x,y) => x*y)
+			}
+		}
+
+	/*
+	* Exercise 3.8 - What happens when you do: 
+	* List.foldRight(List(1,2,3),Nil:List[Int])(Cons(_,_))
+	*
+	* Answer:
+	*	List[Int] = Cons(1,Cons(2,Cons(3,Nil)))
+	*/
+
+	/*
+	* Exercise 3.9 - Function 'length' should compute the length
+	* of a list using foldRight.
+	*
+	* Test Case:
+	* 	1)
+	*		val x = List(1,2,3,4,5)
+	*		List.length(x)
+	*
+	*	Expected Output:
+	*		5
+	*
+	*	2)
+	*		val x = List()
+	*		List.length(x)
+	*	
+	*	Expected Output:
+	* 		0
+	*/
+	def length[A](as: List[A]) : Int =
+		foldRight(as, 0)((x,y) => 1 + y)
+
+
 }

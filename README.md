@@ -19,3 +19,8 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 3.4 - Function 'drop' to remove first n elements of a List](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
 * [Exercise 3.5 - Function 'dropWhile' to remove elements of a List while they match a predicate](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
 * [Exercise 3.6 - Function 'init' that returns a List of all but its last element](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
+* [Exercise 3.7 - Function 'product' using 'foldRight' that halts recursion when it finds a 0](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
+* [Exercise 3.8 - What happens when you do: 
+  >'List.foldRight(List(1,2,3),Nil:List[Int])(Cons(_,_))]' ?]
+  (https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
+* [Exercise 3.9 - Function 'length' using foldRight](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
