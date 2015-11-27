@@ -112,7 +112,7 @@ object List {
 		def rmlast(nl: List[A], sl: List[A]) : List[A] = nl match{
 			case Nil => Nil
 			case Cons(h,Nil) => sl
-			case Cons(h,t) => rmlast(List.tail(nl),appendElem(sl,h))
+			case Cons(h,t) => rmlast(t,appendElem(sl,h))
 		}
 		if(l == Nil) l
 		else rmlast(l,List[A]())
