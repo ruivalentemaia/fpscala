@@ -3,7 +3,7 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 
 ##Exercises
 
-###Chapter 2
+###Chapter 2 - Getting Started
 
 * [Exercise 2.1 - The nth Fibonacci number](https://github.com/ruivalentemaia/fpscala/blob/master/fibonacci.scala)
 * [Exercise 2.2 - Is the Array sorted ?](https://github.com/ruivalentemaia/fpscala/blob/master/issorted.scala)
@@ -11,7 +11,9 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 2.4 - Uncurrying](https://github.com/ruivalentemaia/fpscala/blob/master/curry.scala)
 * [Exercise 2.5 - Compose two functions](https://github.com/ruivalentemaia/fpscala/blob/master/compose.scala)
 
-###Chapter 3
+###Chapter 3 - Data Structures
+
+####Lists
 
 * [Exercise 3.1 - Result of match](https://github.com/ruivalentemaia/fpscala/blob/master/singlylinkedlistmatch.scala)
 * [Exercise 3.2 - Function 'tail' that removes the first element of a List](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
