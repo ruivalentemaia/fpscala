@@ -105,15 +105,20 @@ object List {
 	*/
 
 	def init[A](l: List[A]) : List[A] = {
-		def appendElem(nl: List[A], elem: A): List[A] = nl match {
-			case Nil => Cons(elem,Nil)
-			case Cons(h,t) => Cons(h,appendElem(t,elem))
-		}
-		def rmlast(nl: List[A], sl: List[A]) : List[A] = nl match{
-			case Nil => Nil
-			case Cons(h,Nil) => sl
-			case Cons(h,t) => rmlast(t,appendElem(sl,h))
-		}
+		def appendElem(nl: List[A], elem: A): List[A] = 
+			nl match {
+				case Nil => Cons(elem,Nil)
+				case Cons(h,t) => Cons(h,appendElem(t,elem))
+			}
+		
+		@annotation.tailrec
+		def rmlast(nl: List[A], sl: List[A]) : List[A] = 
+			nl match{
+				case Nil => Nil
+				case Cons(h,Nil) => sl
+				case Cons(h,t) => rmlast(t,appendElem(sl,h))
+			}
+		
 		if(l == Nil) l
 		else rmlast(l,List[A]())
 	}
