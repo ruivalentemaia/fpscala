@@ -223,6 +223,27 @@ object List {
 	def lengthLeft[A](as: List[A]) : Int = 
 		foldLeft(as,0)((x,y) => 1 + x)
 
+	/*
+	*	Exercise 3.12 - Reverses a list.
+	*/
+	def reverse[A](ls: List[A]) : List[A] = {
+		@annotation.tailrec
+		def go(ls: List[A], ns: List[A]) : List[A] = 
+			ls match{
+				case Nil => Nil
+				case Cons(x,Nil) => Cons(x,ns)
+				case Cons(x,xs) => go(xs, appendFront(ns,x))
+			}
+		@annotation.tailrec
+		def appendFront(ns: List[A], elem: A) : List[A] =
+			ns match {
+				case Nil => Cons(elem, Nil)
+				case Cons(x,Nil) => Cons(elem,Cons(x,Nil)) 
+				case Cons(x,xs) => appendFront(xs, x)
+			}
 
+		if(ls == Nil) Nil
+		else go(ls, List[A]())
+	}
 
 }
