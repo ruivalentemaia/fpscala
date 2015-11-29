@@ -178,21 +178,51 @@ object List {
 	*
 	* Test Case:
 	* 	1)
-	*		val x = List(1,2,3,4,5)
-	*		List.length(x)
+	*	val x = List(1,2,3,4,5)
+	*	List.length(x)
 	*
-	*	Expected Output:
-	*		5
+	*	Expected Output: 5
 	*
 	*	2)
-	*		val x = List()
-	*		List.length(x)
+	*	val x = List()
+	*	List.length(x)
 	*	
-	*	Expected Output:
-	* 		0
+	*	Expected Output: 0
 	*/
 	def length[A](as: List[A]) : Int =
 		foldRight(as, 0)((x,y) => 1 + y)
+
+	/*
+	*	Exercise 3.10 - Function 'foldLeft', similar to 'foldRight',
+	*	but tail-recursive.
+	*/
+	def foldLeft[A,B](as: List[A], z: B)(f: (B,A) => B) : B = {
+		@annotation.tailrec
+		def go(a: List[A], z: B, ac: B) (f: (B,A) => B) : B = 
+			a match {
+				case Nil => z
+				case Cons(Nil,xs) => go(xs,z,z)(f)
+				case Cons(x,Nil) => f(ac,x)
+				case Cons(x,xs) => go(xs,z,f(ac,x))(f)
+			}
+		if (as == Nil) z
+		else go(as,z,z)(f)
+	}
+
+	/*
+	*	Exercise 3.11 - Functions 'sumLeft', 'productLeft' and
+	* 	'lengthLeft' to compute the length of a list using
+	* 	foldLeft.
+	*/
+	def sumLeft(ns: List[Int]) =
+		foldLeft(ns,0)((x,y) => x+y)
+
+	def productLeft(ns: List[Double]) = 
+		foldLeft(ns, 1.0) ((x,y) => x * y)
+
+	def lengthLeft[A](as: List[A]) : Int = 
+		foldLeft(as,0)((x,y) => 1 + x)
+
 
 
 }
