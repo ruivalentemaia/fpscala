@@ -26,3 +26,4 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 3.9 - Function 'length' using foldRight](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
 * [Exercise 3.10 - Function 'foldLeft', similar to 'foldRight', but tail-recursive](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
 * [Exercise 3.11 - 'sumLeft', 'productLeft' and 'lengthLeft' using foldLeft](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
+* [Exercise 3.12 - Reverse a list](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala)
