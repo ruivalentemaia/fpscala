@@ -180,7 +180,7 @@ object List {
 	* 	1)
 	*	val x = List(1,2,3,4,5)
 	*	List.length(x)
-	*
+	*foldRight
 	*	Expected Output: 5
 	*
 	*	2)
@@ -215,7 +215,7 @@ object List {
 	* 	foldLeft.
 	*/
 	def sumLeft(ns: List[Int]) =
-		foldLeft(ns,0)((x,y) => x+y)
+		foldLeft(ns,0)((x,y) => x + y)
 
 	def productLeft(ns: List[Double]) = 
 		foldLeft(ns, 1.0) ((x,y) => x * y)
@@ -229,21 +229,74 @@ object List {
 	def reverse[A](ls: List[A]) : List[A] = {
 		@annotation.tailrec
 		def go(ls: List[A], ns: List[A]) : List[A] = 
-			ls match{
+			ls match {
 				case Nil => Nil
 				case Cons(x,Nil) => Cons(x,ns)
-				case Cons(x,xs) => go(xs, appendFront(ns,x))
+				case Cons(x,xs) => go(xs, Cons(x,ns))
 			}
-		@annotation.tailrec
-		def appendFront(ns: List[A], elem: A) : List[A] =
-			ns match {
-				case Nil => Cons(elem, Nil)
-				case Cons(x,Nil) => Cons(elem,Cons(x,Nil)) 
-				case Cons(x,xs) => appendFront(xs, x)
-			}
-
 		if(ls == Nil) Nil
 		else go(ls, List[A]())
 	}
+
+	/*
+	* 	Exercise 3.13 - Write foldRight via foldLeft.
+	*/
+	def foldRightviaLeft[A,B](as: List[A], z: B)(f: (A,B) => B) : B = {
+		as match {
+			case Nil => z
+			case Cons(x,Nil) => foldLeft(as,f(x,z)) ((x,y) => f(y,x))
+			case Cons(x,xs) => foldLeft(xs,f(x,z)) ((x,y) => f(y,x))		
+		}
+	}
+
+	def sumFoldRightLeft(ns: List[Int]) = 
+		foldRightviaLeft(ns,0)((x,y) => x + y)
+
+	def multFoldRightLeft(ns: List[Double] ) = 
+		foldRightviaLeft(ns,1.0)((x,y) => x * y)
+
+	def lengthRightLeft[A](ns: List[A]) : Int =
+		foldRightviaLeft(ns,0)((x,y) => 1 + y)
+
+	/*
+	*	Exercise 3.14 - Append.
+	*/
+	def appendFold[A](ls: List[A], z:A) : List[A] = ls match{
+		case Nil => List[A](z)
+		case Cons(Nil,xs) => Cons(Nil,appendFold(xs,z))
+		case Cons(x,Nil) => List[A](x,z)
+		case Cons(x,xs) => Cons(x,appendFold(xs,z))
+	}
+
+	/*
+	*	Exercise 3.15 - Concatenates list of lists into single list
+	*/
+	def concList[A](ls: List[List[A]]) : List[A] = {
+		@annotation.tailrec
+		def getHead(ls: List[A]) : A = ls match {
+			case Nil => getHead(ls)
+			case Cons(x,Nil) => x
+			case Cons(x,xs) => x 
+		}
+
+		@annotation.tailrec
+		def transform(ls: List[A], ns: List[A]) : List[A] = ls match {
+			case Nil => ns
+			case Cons(x,Nil) => appendFold(ns,x)
+			case Cons(x,xs) => transform(xs,appendFold(ns,x))
+		}
+
+		@annotation.tailrec
+		def convert(ls: List[List[A]], ns: List[A]) : List[A] = ls match {
+			case Nil => ns
+			case Cons(Nil,xs) => convert(xs,ns)
+			case Cons(x,Nil) => transform(x,ns)
+			case Cons(x,xs) => convert(xs, transform(x,ns))
+		}
+
+		if(ls == Nil) Nil
+		else convert(ls,List[A]())
+	}
+
 
 }
