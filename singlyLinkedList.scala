@@ -298,5 +298,89 @@ object List {
 		else convert(ls,List[A]())
 	}
 
+	/*
+	*	Exercise 3.16 - Transforms list of integers by adding 1 to each element.
+	*
+	*	Input example:
+	*		val x = List(1,2,3,4)
+	*	Output:
+	*		List[Int]: x = Cons(2,Cons(3,Cons(4,Cons(5,Nil))))
+	*/
+	def addOne(ls: List[Int]) : List[Int] = {
+		@annotation.tailrec
+		def sumThrough(ls: List[Int], ns: List[Int]) : List[Int] = ls match {
+			case Nil => ns
+			case Cons(x,Nil) => sumThrough(Nil,appendFold(ns,x+1))
+			case Cons(x,xs) => sumThrough(xs, appendFold(ns,x+1))
+		}
+
+		if(ls == Nil) Nil
+		else sumThrough(ls,List[Int]())
+	}
+
+	/*
+	*	Exercise 3.17 - Turns each value in a list of doubles into a string.
+	*/
+	def turnToString(ls:List[Double]) : List[String] = {
+		@annotation.tailrec
+		def throughToString(ls: List[Double], ns: List[String]) : List[String] = ls match {
+			case Nil => ns
+			case Cons(x,Nil) => throughToString(Nil, appendFold(ns,x.toString))
+			case Cons(x,xs) => throughToString(xs, appendFold(ns,x.toString))
+		}
+
+		if(ls == Nil) Nil
+		else throughToString(ls,List[String]())
+	}
+
+	/*
+	*	Exercise 3.18 - Function map, that generalizes modifying each element
+	*					in a list while maintaining the structure of the list.
+	*/
+	def map[A,B](as: List[A]) (f: A => B) : List[B] = {
+		@annotation.tailrec
+		def mapThem(as:List[A], ns:List[B]) : List[B] = as match {
+			case Nil => ns
+			case Cons(x,Nil) => mapThem(Nil, appendFold(ns, f(x)))
+			case Cons(x,xs) => mapThem(xs, appendFold(ns, f(x)))
+		}
+
+		if(as == Nil) Nil
+		else mapThem(as,List[B]())
+	}
+
+	/*
+	*	Exercise 3.19 - Function filter, that removes elements from a list
+	* 					unless they satisfy a given predicate.
+	*/
+	def filter[A](as: List[A])(f: A => Boolean) : List[A] = {
+		@annotation.tailrec
+		def filterThem(as: List[A], ns: List[A]) (f: A => Boolean) : List[A] = as match {
+			case Nil => ns
+			case Cons(Nil, xs) => filterThem(xs,ns)(f)
+			case Cons(x,Nil) => {
+				if(!f(x)) {
+					drop(as,1)
+					filterThem(Nil,ns)(f)
+				}
+				else {
+					filterThem(Nil, appendFold(ns,x))(f)
+				}
+			}
+			case Cons(x,xs) => {
+				if(!f(x)) {
+					drop(as,1)
+					filterThem(xs,ns)(f)
+				}
+				else {
+					filterThem(xs, appendFold(ns,x))(f)
+				}
+			}
+		}
+
+		if(as == Nil) Nil
+		else filterThem(as,List[A]())(f)
+	}
+
 
 }
