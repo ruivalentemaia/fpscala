@@ -34,3 +34,4 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 3.17 - Turns values of list of Double to String](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/turnToString.scala)
 * [Exercise 3.18 - Map function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/map.scala)
 * [Exercise 3.19 - Filter function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/filter.scala)
+* [Exercise 3.20 - FlatMap function which works like map but returns a list as result](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/flatMap.scala)

@@ -354,6 +354,7 @@ object List {
 	* 					unless they satisfy a given predicate.
 	*/
 	def filter[A](as: List[A])(f: A => Boolean) : List[A] = {
+		
 		@annotation.tailrec
 		def filterThem(as: List[A], ns: List[A]) (f: A => Boolean) : List[A] = as match {
 			case Nil => ns
@@ -382,5 +383,75 @@ object List {
 		else filterThem(as,List[A]())(f)
 	}
 
+	/*
+	*	Exercise 3.20 - Function flatMap, that works like map except that the
+	* 					function given will return a list instead of a single
+	*					result.
+	*
+	*	Input Example: flatMap(List(1,2,3)) (i => List(i,i))
+	*	Output: List(1,1,2,2,3,3)
+	*/
+	def flatMap[A,B](as: List[A]) (f: A => List[B]) : List[B] = {
+
+		@annotation.tailrec
+		def appendList(bs: List[B], ns: List[B]) : List[B] = bs match{
+			case Nil => ns
+			case Cons(x,Nil) => appendList(Nil, appendFold(ns,x))
+			case Cons(x,xs) => appendList(xs, appendFold(ns,x))
+		}
+
+		@annotation.tailrec
+		def flatMapThem(as: List[A], ns: List[B]) : List[B] = as match {
+			case Nil => ns
+			case Cons(x,Nil) => appendList(f(x),ns)
+			case Cons(Nil,xs) => flatMapThem(xs,ns)
+			case Cons(x,xs) => flatMapThem(xs, appendList(f(x),ns))
+		}
+
+		if(as == Nil) Nil
+		else flatMapThem(as, List[B]())
+	}
+
+	/*
+	*	Exercise 3.21 - Function flatFilter, that uses flatMap to implement filter.
+	*
+	*	Input Example: flatFilter(List(1,2,3,4,5,6)) (i => List(i%2==0, i%3==0))
+	*	Output: List(6)
+	*/
+	def flatFilter[A](as: List[A]) (f: A => List[Boolean]) : List[A] = {
+
+		@annotation.tailrec
+		def checkBooleanList(ls: List[Boolean]) : Boolean = ls match{
+			case Nil => return true
+			case Cons(x,Nil) => {
+				if(x) checkBooleanList(Nil)
+				else return false
+			}
+			case Cons(x,xs) => {
+				if(x) checkBooleanList(xs)
+				else return false
+			}
+		}
+
+		@annotation.tailrec
+		def flatFilterThem(as:List[A], ns: List[A]) : List[A] = as match {
+			case Nil => ns
+			case Cons(x,Nil) => {
+				if(checkBooleanList(f(x))) {
+					appendFold(ns,x)
+				} 
+				flatFilterThem(Nil,ns)
+			}
+			case Cons(x,xs) => {
+				if(checkBooleanList(f(x))){
+					appendFold(ns,x)
+				} 	
+				flatFilterThem(xs,ns)
+			}
+		}
+
+		if(as == Nil) Nil
+		else flatFilterThem(as,List[A]())
+	}
 
 }
