@@ -418,6 +418,7 @@ object List {
 	*	Input Example: flatFilter(List(1,2,3,4,5,6)) (i => List(i%2==0, i%3==0))
 	*	Output: List(6)
 	*/
+
 	def flatFilter[A](as: List[A]) (f: A => List[Boolean]) : List[A] = {
 
 		@annotation.tailrec
@@ -433,21 +434,16 @@ object List {
 			}
 		}
 
+		def buildList(a : A, ns: List[A]) : List[A] = {
+			if(checkBooleanList(f(a))) appendFold(ns,a)
+			else ns
+		}
+
 		@annotation.tailrec
 		def flatFilterThem(as:List[A], ns: List[A]) : List[A] = as match {
 			case Nil => ns
-			case Cons(x,Nil) => {
-				if(checkBooleanList(f(x))) {
-					appendFold(ns,x)
-				} 
-				flatFilterThem(Nil,ns)
-			}
-			case Cons(x,xs) => {
-				if(checkBooleanList(f(x))){
-					appendFold(ns,x)
-				} 	
-				flatFilterThem(xs,ns)
-			}
+			case Cons(x,Nil) => buildList(x,ns)
+			case Cons(x,xs) => flatFilterThem(xs, buildList(x,ns))
 		}
 
 		if(as == Nil) Nil
