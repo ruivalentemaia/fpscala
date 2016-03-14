@@ -450,4 +450,19 @@ object List {
 		else flatFilterThem(as,List[A]())
 	}
 
+	/*
+	*	Exercise 3.22 - Function "zip", which accepts two lists of integers
+	* 					and constructs a new list by adding corresponding
+	*					elements.
+	*
+	*	Input: List.zip(List(1,2,3), List(4,5,6))
+	*	Expected Output: List[Int] = List(5,7,9)
+	*/
+
+	def zip(ls: List[Int], ns: List[Int]) : List[Int] = (ls,ns) match {
+		case (_,Nil) => ls
+		case (Nil,_) => ns
+		case (Cons(x,xs),Cons(h,t)) => Cons(x + h, zip(xs,t))
+	}
+
 }
