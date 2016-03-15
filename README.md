@@ -37,3 +37,4 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 3.20 - FlatMap function which works like map but returns a list as result](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/flatMap.scala)
 * [Exercise 3.21 - FlatFilter: uses flatMap to implement a filter](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/flatFilter.scala)
 * [Exercise 3.22 - Function zip: adds two integer lists](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/zip.scala)
+* [Exercise 3.23 - Function zipWith: generalized function that performs an operation with two lists of a given type](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/zipWith.scala)

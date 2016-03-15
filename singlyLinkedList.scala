@@ -465,4 +465,20 @@ object List {
 		case (Cons(x,xs),Cons(h,t)) => Cons(x + h, zip(xs,t))
 	}
 
+	/*
+	*	Exercise 3.23 - Function "zipWith", that performs what Exercise 3.22
+	*					zip function does, but it's not specific to integers
+	*					or addition.
+	*
+	*	Input: def subLists(ls: List[Double], ns: List[Double]) : List[Double] =
+	*				List.zipWith(ls,ns)((x,y) => x - y)
+	*			subLists(List(5.0,5.0,6.0),List(4.0,4.0,5.0))
+	*	Expected Output: List[Double] = List(1.0,1.0,1.0)
+	*/
+	def zipWith[A,B,C](ls: List[A], ns: List[B]) (f: (A,B) => C) : List[C] = (ls,ns) match {
+		case (_,Nil) => Nil
+		case (Nil,_) => Nil
+		case (Cons(x,xs),Cons(h,t)) => Cons(f(x,h), zipWith(xs,t)(f))
+	}
+
 }
