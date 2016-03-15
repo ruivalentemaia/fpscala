@@ -39,3 +39,9 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 3.22 - Function zip: adds two integer lists](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/zip.scala)
 * [Exercise 3.23 - Function zipWith: generalized function that performs an operation with two lists of a given type](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/zipWith.scala)
 * [Exercise 3.24 - Function hasSubsequence: checks whether a List contains another List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/hasSubsequence.scala)
+
+####Trees
+
+* [Exercise 3.25 - Function size which computes the size of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/size.scala)
+* [Exercise 3.26 - Function maximum which computes the maximum value of a Tree of integers](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/maximum.scala)
+
