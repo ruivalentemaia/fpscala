@@ -481,4 +481,28 @@ object List {
 		case (Cons(x,xs),Cons(h,t)) => Cons(f(x,h), zipWith(xs,t)(f))
 	}
 
+	/*
+	*	Exercise 3.24 - Function "hasSubsequence", which checks whether a List
+	*					contains another List as a subsequence.
+	*
+	*	Input 1: List.hasSubsequence(List(1,2,3,4),List(1,2))
+	*	Expected Output 1: True
+	*
+	*	Input 2: List.hasSubsequence(List(1,2,3,4), List(1,5))
+	* 	Expected Output 2: False
+	*/
+	def hasSubsequence[A](sup: List[A], sub: List[A]) : Boolean = (sup,sub) match {
+		case (Nil,_) => false
+		case (_,Nil) => false
+		case (Cons(x,xs), Cons(h,Nil)) => {
+			if(x == h) true
+			else hasSubsequence(xs,sub)
+		}
+		case (Cons(x,xs), Cons(h,t)) => {
+			if(x == h) hasSubsequence(xs,t)
+			else hasSubsequence(sup, t)
+		}
+	}
+
+
 }
