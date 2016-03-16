@@ -13,7 +13,7 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 
 ###Chapter 3 - Data Structures
 
-####Lists ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/singlyLinkedList.scala))
+####Lists ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/list.scala))
 
 * [Exercise 3.1 - Result of match](https://github.com/ruivalentemaia/fpscala/blob/master/chapter2-lists/singlylinkedlistmatch.scala)
 * [Exercise 3.2 - Function tail that removes the first element of a List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/tail.scala)
@@ -45,5 +45,6 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 3.25 - Function size which computes the size of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/size.scala)
 * [Exercise 3.26 - Function maximum which computes the maximum value of a Tree of integers](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/maximum.scala)
 * [Exercise 3.27 - Function depths which computes the maximum length of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/depth.scala)
-* [Exercise 3.27 - Function map that modifies each element of a given Tree according to a given high-order function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/map.scala)
+* [Exercise 3.27 - Function map that modifies each element of a given Tree according to a given higher-order function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/map.scala)
+* [Exercise 3.28 - Function fold that generalizes over functions size, maximum, depth and map](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/fold.scala)
 
