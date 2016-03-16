@@ -7,8 +7,10 @@ object Tree {
 	/*
 	*	Exercise 3.26 - Function "maximum" that computes the maximum
 	*					Int in a Tree.
-	*	Input: val t = Branch(Branch(Leaf(4),Leaf(20)), Branch(Leaf(8), Leaf(18)))
-	*		   Tree.maximum(t)
+	*	Input: 
+	*	val t = Branch(Branch(Leaf(4),Leaf(20)), Branch(Leaf(8), Leaf(18)))
+	*	Tree.maximum(t)
+	*	
 	*	Expected Output: 20.
 	*/
 	def maximum(tree: Tree[Int]) : Int = {

@@ -6,11 +6,13 @@ object Tree {
 	
 	/*
 	*	Exercise 3.25 - Function "size" which counts the number of
-	*					nodes (branches and leaves) in a tree.
+	*	nodes (branches and leaves) in a tree.
 	*
-	*	Input: val t = Branch(Branch(Leaf("a"), Leaf("b")),
-	*						  Branch(Leaf("c"), Leaf("d")))
-	*			Tree.size(t);
+	*	Input: 
+	*	val t = Branch(Branch(Leaf("a"), Leaf("b")),
+	*					Branch(Leaf("c"), Leaf("d")))
+	*	Tree.size(t);
+	*	
 	*	Expected Output: 7.
 	*/
 	def size[A](tree: Tree[A]) : Int = {
@@ -23,16 +25,41 @@ object Tree {
 
 	/*
 	*	Exercise 3.26 - Function "maximum" that computes the maximum
-	*					Int in a Tree.
+	*	Int in a Tree.
+	*	
 	*	Input: val t = Branch(Branch(Leaf(4),Leaf(20)), Branch(Leaf(8), Leaf(18)))
-	*		   Tree.maximum(t)
+	*	Tree.maximum(t)
+	*
 	*	Expected Output: 20.
 	*/
-	def maximum(tree: Tree[Int]) : Int = {
-		def getMax(tree: Tree[Int], x: Int) : Int = tree match {
-			case Leaf(y) => x max y
-			case Branch(l,r) => getMax(l,x) max getMax(r,x)
-		}
-		getMax(tree,-1000000)
+	def maximum(tree: Tree[Int]) : Int = tree match{
+		case Leaf(x) => maximum(Leaf(x))
+		case Branch(Leaf(y),Leaf(x)) => x max y
+		case Branch(l,r) => maximum(l) max maximum(r)
 	}
+
+	/*
+	*	Exercise 3.27 - Function "depth" that returns the maximum path
+	*	length from the root of a tree to any leaf.
+	*
+	*	Input: val t = Branch(Branch(Leaf(1), Leaf(2)), Branch(Branch(Leaf(3), Leaf(4)),
+	*	Branch(Leaf(5), Leaf(6))))
+	*	Tree.depth(t)
+	*	
+	*	Expected Output: 4
+	*
+	*	Input2: val t2 = Branch(Branch(Leaf(1), Branch(Leaf(2), Leaf(3))), 
+	*	Branch(Branch(Leaf(4), Branch(Leaf(5),Leaf(6))), Branch(Leaf(7), Leaf(8))))
+	*	Tree.depth(t2)
+	*
+	*	Expected Output: 5
+	*/
+	def depth[A](tree: Tree[A]) : Int = {
+		def getDepth(tree: Tree[A], n: Int) : Int = tree match {
+			case Leaf(x) => n
+			case Branch(l,r) => getDepth(l,n+1) max getDepth(r,n+1)
+		} 
+		getDepth(tree,1)
+	}
+
 }

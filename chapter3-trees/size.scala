@@ -6,11 +6,13 @@ object Tree {
 	
 	/*
 	*	Exercise 3.25 - Function "size" which counts the number of
-	*					nodes (branches and leaves) in a tree.
+	*	nodes (branches and leaves) in a tree.
 	*
-	*	Input: val t = Branch(Branch(Leaf("a"), Leaf("b")),
-	*						  Branch(Leaf("c"), Leaf("d")))
-	*			Tree.size(t);
+	*	Input: 
+	*	val t = Branch(Branch(Leaf("a"), Leaf("b")),
+	*					Branch(Leaf("c"), Leaf("d")))
+	*	Tree.size(t);
+	*	
 	*	Expected Output: 7.
 	*/
 	def size[A](tree: Tree[A]) : Int = {
