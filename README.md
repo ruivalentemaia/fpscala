@@ -45,4 +45,5 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 3.25 - Function size which computes the size of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/size.scala)
 * [Exercise 3.26 - Function maximum which computes the maximum value of a Tree of integers](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/maximum.scala)
 * [Exercise 3.27 - Function depths which computes the maximum length of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/depth.scala)
+* [Exercise 3.27 - Function map that modifies each element of a given Tree according to a given high-order function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/map.scala)
 
