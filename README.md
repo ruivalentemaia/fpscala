@@ -48,3 +48,8 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 3.27 - Function map that modifies each element of a given Tree according to a given higher-order function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/map.scala)
 * [Exercise 3.28 - Function fold that generalizes over functions size, maximum, depth and map](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/fold.scala)
 
+###Chapter 4 - Error Handling
+
+####Option ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/option.scala))
+
+*[Exercise 4.1 - Implement basic functions for the custom Option object](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/customOption.scala)
