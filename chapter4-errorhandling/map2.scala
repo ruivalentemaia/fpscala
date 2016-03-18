@@ -33,29 +33,6 @@ case object None extends Option[Nothing]
 
 object Option {
 	/*
-	*	Exercise 4.2 - Function variance, implemented in terms of flatMap
-	*	and the computation should be aborted as soon as the first failure
-	* 	is encountered.
-	*	
-	*	Input:
-	*	:paste option.scala
-	*	val x = Seq(1.5,6.7,7.6,1.0,-0.3)
-	*	Option.variance(x)
-	*
-	*	Expected Output:
-	*	Option[Double] = Some(10.308)
-	*/
-
-	def mean(xs: Seq[Double]) : Option[Double] = {
-		if(xs.isEmpty) None
-		else Some(xs.sum / xs.length)
-	}
-
-	def variance(xs: Seq[Double]) : Option[Double] = {
-		mean(xs).flatMap(m => mean(xs.map(x => math.pow(x-m,2))))
-	}
-
-	/*
 	*	Exercise 4.3 - Generic function map2 that combines two Option values
 	*	using a binary function.
 	*

@@ -54,3 +54,4 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 
 * [Exercise 4.1 - Implement basic functions for the custom Option object](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/customOption.scala)
 * [Exercise 4.2 - Calculate variance of a Seq in terms of flatMap](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/variance.scala)
+* [Exercise 4.3 - Generic function map2 that combines two Option values using a binary function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/map2.scala)
