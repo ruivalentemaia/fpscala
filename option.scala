@@ -119,11 +119,21 @@ object Option {
 	*	Option[List[String]] = Some(List(1,2,3,4))
 	*/
 	def traverse[A,B](a: List[A]) (f: A => Option[B]) : Option[List[B]] = {
-		def traverseOpt(a: List[A]) : Option[List[B]] = a match {
-			case Nil => Some(Nil)
-			case x::xs => traverse(xs) (x => f(x))
+		def append(a: List[A], b: List[Option[B]]) : List[Option[B]] = a match {
+			case Nil => b
+			case x :: xs => f(x) :: append(xs, b)
 		}
 
-		traverseOpt(a)
+		def getHead(a: List[A]) : Option[B] = a match {
+			case Nil => None
+			case x :: xs => f(x)
+		}
+
+		def traverseOpt(a: List[A], b: List[Option[B]]) : Option[List[B]] = a match {
+			case Nil => Some(Nil)
+			case x::xs => sequence(append(xs,b))
+		}
+
+		traverseOpt(a, List[Option[B]]())
 	}
 }
