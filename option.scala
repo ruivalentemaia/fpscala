@@ -84,7 +84,7 @@ object Option {
 	}
 
 	/*
-	*	Exercise 4.3 - Function sequence combines a list of Options int one Option
+	*	Exercise 4.4 - Function sequence combines a list of Options int one Option
 	*	containing a list of all the Some values in the original list.
 	*
 	*	Input:
@@ -105,5 +105,25 @@ object Option {
 	def sequence[A](a: List[Option[A]]) : Option[List[A]] = a match {
 		case Nil => Some(Nil)
 		case x :: xs => x flatMap(x2 => (sequence(xs) map (x2 :: _))) 
+	}
+
+	/*
+	*	Exercise 4.5 - Function traverse, which sequences the results
+	*	of a map, converting each element of a List[A] to a Option[List[A]].
+	*
+	*	Input:
+	*	val x = List(1,2,3,4)
+	*	Option.traverse(x)(x => Some(x.toString))
+	*
+	*	Expected Output:
+	*	Option[List[String]] = Some(List(1,2,3,4))
+	*/
+	def traverse[A,B](a: List[A]) (f: A => Option[B]) : Option[List[B]] = {
+		def traverseOpt(a: List[A]) : Option[List[B]] = a match {
+			case Nil => Some(Nil)
+			case x::xs => traverse(xs) (x => f(x))
+		}
+
+		traverseOpt(a)
 	}
 }

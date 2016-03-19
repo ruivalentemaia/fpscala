@@ -34,7 +34,7 @@ case object None extends Option[Nothing]
 object Option {
 
 	/*
-	*	Exercise 4.3 - Function sequence combines a list of Options int one Option
+	*	Exercise 4.3 - Function sequence combines a list of Options into one Option
 	*	containing a list of all the Some values in the original list.
 	*
 	*	Input:
