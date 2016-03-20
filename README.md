@@ -56,3 +56,5 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 4.2 - Calculate variance of a Seq in terms of flatMap](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/variance.scala)
 * [Exercise 4.3 - Generic function map2 that combines two Option values using a binary function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/map2.scala)
 * [Exercise 4.4 - Function sequence combines a list of Option into one Option containing a list of all Some values in the original list](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/sequence.scala)
+* [Exercise 4.5 - Function traverse which sequences results of a map and function sequence via traverse](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/traverse.scala)
+
