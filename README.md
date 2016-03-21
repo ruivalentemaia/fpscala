@@ -58,3 +58,6 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 4.4 - Function sequence combines a list of Option into one Option containing a list of all Some values in the original list](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/sequence.scala)
 * [Exercise 4.5 - Function traverse which sequences results of a map and function sequence via traverse](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/traverse.scala)
 
+####Either ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/either.scala))
+
+* [Exercise 4.6 - Implement basic functions for the custom Either object](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/customEither.scala)
