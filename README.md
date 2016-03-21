@@ -61,3 +61,4 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 ####Either ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/either.scala))
 
 * [Exercise 4.6 - Implement basic functions for the custom Either object](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/customEither.scala)
+* [Exercise 4.7 - Implement traverse and sequence for the Either object](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/seqTraverseEither.scala)
