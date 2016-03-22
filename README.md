@@ -62,3 +62,13 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 
 * [Exercise 4.6 - Implement basic functions for the custom Either object](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/customEither.scala)
 * [Exercise 4.7 - Implement traverse and sequence for the Either object](https://github.com/ruivalentemaia/fpscala/blob/master/chapter4-errorhandling/seqTraverseEither.scala)
+
+One doubt that I had as soon as I've finished the exercises in the book was: when should I use Option or Either ? Will I be able to identify, in the future, depending on the circumstance of what I'm implementing at the moment, which one to use ? This blog post provides a good answer: [Try, Option or Either ?](http://blog.xebia.com/try-option-or-either/)
+
+
+### Chapter 5 - Strictness and laziness ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/stream.scala))
+
+* [Exercise 5.1 - Convert Stream to List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/toList.scala)
+* [Exercise 5.2 - Return first n elements of a Stream](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/take.scala)
+* [Exercise 5.3 - Return elements of a Stream that match a given predicate](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/takeWhile.scala)
+
