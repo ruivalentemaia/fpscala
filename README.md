@@ -16,12 +16,12 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 ####Lists ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/list.scala))
 
 * [Exercise 3.1 - Result of match](https://github.com/ruivalentemaia/fpscala/blob/master/chapter2-lists/singlylinkedlistmatch.scala)
-* [Exercise 3.2 - Function tail that removes the first element of a List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/tail.scala)
-* [Exercise 3.3 - Function setHead that replaces the first element of a List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/setHead.scala)
-* [Exercise 3.4 - Function drop to remove first n elements of a List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/drop.scala)
-* [Exercise 3.5 - Function dropWhile to remove elements of a List while they match a predicate](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/dropWhile.scala)
-* [Exercise 3.6 - Function init that returns a List of all but its last element](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/init.scala)
-* [Exercise 3.7 - Function product using 'foldRight' that halts recursion when it finds a 0](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/foldRight.scala)
+* [Exercise 3.2 - Remove first element of a List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/tail.scala)
+* [Exercise 3.3 - Replace first element of a List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/setHead.scala)
+* [Exercise 3.4 - Remove first n elements of a List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/drop.scala)
+* [Exercise 3.5 - Remove elements of a List while they match a predicate](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/dropWhile.scala)
+* [Exercise 3.6 - Returns List of all but the last element](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/init.scala)
+* [Exercise 3.7 - Halts recursion if it finds a zer0](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/foldRight.scala)
 * [Exercise 3.8 - Direct question](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/length.scala)
 * [Exercise 3.9 - Function length using foldRight](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/length.scala)
 * [Exercise 3.10 - Function foldLeft, similar to foldRight, but tail-recursive](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/foldLeft.scala)
@@ -34,18 +34,18 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 * [Exercise 3.17 - Turns values of list of Double to String](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/turnToString.scala)
 * [Exercise 3.18 - Map function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/map.scala)
 * [Exercise 3.19 - Filter function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/filter.scala)
-* [Exercise 3.20 - FlatMap function which works like map but returns a list as result](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/flatMap.scala)
+* [Exercise 3.20 - Works like map but returns a List as result](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/flatMap.scala)
 * [Exercise 3.21 - FlatFilter: uses flatMap to implement a filter](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/flatFilter.scala)
-* [Exercise 3.22 - Function zip: adds two integer lists](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/zip.scala)
-* [Exercise 3.23 - Function zipWith: generalized function that performs an operation with two lists of a given type](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/zipWith.scala)
-* [Exercise 3.24 - Function hasSubsequence: checks whether a List contains another List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/hasSubsequence.scala)
+* [Exercise 3.22 - Adds two integer lists](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/zip.scala)
+* [Exercise 3.23 - Generalized function that performs an operation with two lists of a given type](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/zipWith.scala)
+* [Exercise 3.24 - Checks whether a List contains a sublist](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-lists/hasSubsequence.scala)
 
 ####Trees ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/tree.scala))
 
-* [Exercise 3.25 - Function size which computes the size of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/size.scala)
-* [Exercise 3.26 - Function maximum which computes the maximum value of a Tree of integers](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/maximum.scala)
-* [Exercise 3.27 - Function depths which computes the maximum length of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/depth.scala)
-* [Exercise 3.27 - Function map that modifies each element of a given Tree according to a given higher-order function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/map.scala)
+* [Exercise 3.25 - Computes size of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/size.scala)
+* [Exercise 3.26 - Computes maximum value of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/maximum.scala)
+* [Exercise 3.27 - Computes maximum length of a Tree](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/depth.scala)
+* [Exercise 3.27 - Modifies elements of a Tree given a higher order function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/map.scala)
 * [Exercise 3.28 - Function fold that generalizes over functions size, maximum, depth and map](https://github.com/ruivalentemaia/fpscala/blob/master/chapter3-trees/fold.scala)
 
 ###Chapter 4 - Error Handling
@@ -66,7 +66,7 @@ Exercises from the book Functional Programming in Scala (Paul Chiusano, Rúnar B
 One doubt that I had as soon as I've finished the exercises in the book was: when should I use Option or Either ? Will I be able to identify, in the future, depending on the circumstance of what I'm implementing at the moment, which one to use ? This blog post provides a good answer: [Try, Option or Either ?](http://blog.xebia.com/try-option-or-either/)
 
 
-### Chapter 5 - Strictness and laziness ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/stream.scala))
+### Chapter 5 - Strictness and Laziness ([All Exercises](https://github.com/ruivalentemaia/fpscala/blob/master/stream.scala))
 
 * [Exercise 5.1 - Convert Stream to List](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/toList.scala)
 * [Exercise 5.2 - Return first n elements of a Stream](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/take.scala)
