@@ -2,34 +2,6 @@ import Stream._
 
 sealed trait Stream[+A] {
 	/*
-	*	Exercise 5.1 - Convert Stream to List.
-	*/
-	def toList : List[A] = this match {
-		case Empty => Nil
-		case Cons(h,t) => h() :: t().toList
-	}
-
-	/*
-	* 	Exercise 5.2 - take(n) returns the first n elements of a Stream.
-	*/
-	def take(n: Int) : Stream[A] = this match {
-		case Cons(h,t) => if(n>0) cons(h(),t().take(n-1)) else empty
-		case _ => empty
-	}
-
-	/*
-	*	Exercise 5.3 - takeWhile returns all elements of a Stream that
-	*	match a given predicate.
-	*/
-	def takeWhile(p: A => Boolean) :  Stream[A] = this match {
-		case Cons(h,t) => {
-			if(p(h())) cons(h(),t().takeWhile(p))
-			else t().takeWhile((p))
-		}
-		case _ => empty
-	}
-
-	/*
 	*	Exercise 5.4 - forAll checks that all elements in the Stream match
 	*	a given predicate and terminates when one doesn't.
 	*/
