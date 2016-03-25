@@ -76,11 +76,33 @@ sealed trait Stream[+A] {
 	def filter(f: A => Boolean) : Stream[A] =
 		foldRight[Stream[A]](empty)((a,b) => if(f(a)) cons(a,b) else b)
 
-	def append[B >: A](a: => Stream[B]) : Stream[B] = {
+	def append[B >: A](a: => Stream[B]) : Stream[B] =
 		foldRight(a)((h,t) => cons(h,t))
-	}
-	def flatMap[B](f: A => Stream[B]) : Stream[B] = {
+
+	def flatMap[B](f: A => Stream[B]) : Stream[B] =
 		foldRight(empty[B])((h,t) => f(h) append t)
+
+	def find(p: A => Boolean) : Option[A] =
+		filter(p).headOptionViaFold
+
+	/*
+	*	Exercise 5.8 - Returns infinite Stream of a given value.
+	*/
+	def constant[A](a: A) : Stream[A] =
+		Stream.cons(a,constant(a))
+
+	/*
+	*	Exercise 5.9 -  Generates infinite Stream of integers, starting from n
+	*	then n+1, n+2 and so on.
+	*/
+	def from(n: Int) : Stream[Int] = 
+		Stream.cons(n,from(n+1))
+
+	/*
+	*	Exercise 5.10 - Generates infinite Stream of Fibonacci numbers.
+	*/
+	def fibs(prev: Int, next: Int) : Stream[Int] = {
+		Stream.cons(prev,fibs(next,prev+next))
 	}
 
 }
