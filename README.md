@@ -79,3 +79,4 @@ One doubt that I had as soon as I've finished the exercises in the book was: whe
 * [Exercise 5.9 - Infinite stream of integers adding one each time](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/infinite.scala)
 * [Exercise 5.10 - Infinite stream of Fibonacci numbers](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/infinite.scala)
 * [Exercise 5.11 - Generic stream-building function](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/unfold.scala)
+* [Exercise 5.12 - fibs, from, constant and ones in terms of unfold](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/unfold.scala)

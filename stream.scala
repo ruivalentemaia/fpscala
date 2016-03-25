@@ -129,4 +129,18 @@ object Stream {
 		case _ => empty
 	}
 
+	/*
+	*	Exercise 5.12 - fibs, from, constant and ones in terms of unfold.
+	*/
+	def onesUnfold : Stream[Int] =
+		unfold(1)(i => Some((i,i)))
+
+	def constantUnfold(a: Int) : Stream[Int] =
+		unfold(a)(i => Some((i,i)))
+
+	def fromUnfold(n: Int) : Stream[Int] =
+		unfold(n)(i => Some((i,i+1)))
+
+	def fibsUnfold: Stream[Int] =
+		unfold(0,1)(f => Some(f._1, (f._2,f._1 + f._2)))
 }
