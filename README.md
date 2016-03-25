@@ -74,3 +74,4 @@ One doubt that I had as soon as I've finished the exercises in the book was: whe
 * [Exercise 5.4 - Return true if all Stream elements match predicate](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/forAll.scala)
 * [Exercise 5.5 - Implementation of takeWhile via foldRight](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/takeWhileFoldRight.scala)
 * [Exercise 5.6 - Implement headOption via foldRight](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/headOptionViaFoldRight.scala)
+* [Exercise 5.6 - Map, filter, append and flatMap via foldRight](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/manipulators.scala)
