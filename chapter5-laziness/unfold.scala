@@ -6,7 +6,6 @@ sealed trait Stream[+A] {
 		case Empty => Nil
 		case Cons(h,t) => h() :: t().toList
 	}
-
 }
 
 case object Empty extends Stream[Nothing]
@@ -25,23 +24,11 @@ object Stream {
 		if (as.isEmpty) empty else cons(as.head, apply(as.tail: _*))
 
 	/*
-	*	Exercise 5.8 - Returns infinite Stream of a given value.
+	*	Exercise 5.11 - General stream-building function unfold.
 	*/
-	def constant[A](a: A) : Stream[A] =
-		Stream.cons(a,constant(a))
-
-	/*
-	*	Exercise 5.9 -  Generates infinite Stream of integers, starting from n
-	*	then n+1, n+2 and so on.
-	*/
-	def from(n: Int) : Stream[Int] = 
-		Stream.cons(n,from(n+1))
-
-	/*
-	*	Exercise 5.10 - Generates infinite Stream of Fibonacci numbers.
-	*/
-	def fibs(prev: Int, next: Int) : Stream[Int] = {
-		Stream.cons(prev,fibs(next,prev+next))
+	def unfold[A,S](z: S)(f: S => Option[(A,S)]) : Stream[A] = f(z) match {
+		case Some((x,y)) => cons(x,unfold(y)(f))
+		case _ => empty
 	}
 
 }
