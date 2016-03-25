@@ -10,17 +10,19 @@ sealed trait Stream[+A] {
 	}
 
 	/*
-	* 	Exercise 5.2 - take(n) returns the first n elements of a Stream.
+	*	Exercise 5.5 - Use foldRight to implement takeWhile
+	*
+	*	Input: Stream(1,2,3,4,5,6).takeWhileFold(i => i%2 == 0).toList
+	*	Output: Stream(2,4,6)
 	*/
-	def take(n: Int) : Stream[A] = this match {
-		case Cons(h,t) => if(n>0) cons(h(),t().take(n-1)) else empty
-		case _ => empty
+	def foldRight[B](z: => B)(f: (A, => B) => B) : B = this match {
+		case Cons(h,t) => f(h(), t().foldRight(z)(f))
+		case _ => z	
 	}
 
-	def drop(n: Int) : Stream[A] = this match {
-		case Cons(h,t) => if(n > 0) t().drop(n-1) else this
-		case _ => this
-	}
+	def takeWhileFold(p: A => Boolean) : Stream[A] = 
+		foldRight[Stream[A]](empty)((h,t) => if(p(h)) cons(h,t) else t)
+
 }
 
 case object Empty extends Stream[Nothing]
@@ -37,4 +39,5 @@ object Stream {
 
 	def apply[A](as: A*) : Stream[A] = 
 		if (as.isEmpty) empty else cons(as.head, apply(as.tail: _*))
+
 }

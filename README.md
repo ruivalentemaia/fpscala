@@ -72,3 +72,4 @@ One doubt that I had as soon as I've finished the exercises in the book was: whe
 * [Exercise 5.2 - Return first n elements of a Stream](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/take.scala)
 * [Exercise 5.3 - Return elements of a Stream that match a given predicate](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/takeWhile.scala)
 * [Exercise 5.4 - Return true if all Stream elements match predicate](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/forAll.scala)
+* [Exercise 5.5 - Implementation of takeWhile via foldRight](https://github.com/ruivalentemaia/fpscala/blob/master/chapter5-laziness/takeWhileFoldRight.scala)

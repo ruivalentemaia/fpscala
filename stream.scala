@@ -55,6 +55,9 @@ sealed trait Stream[+A] {
 		case _ => z	
 	}
 
+	def takeWhileFold(p: A => Boolean) : Stream[A] = 
+		foldRight[Stream[A]](empty)((h,t) => if(p(h)) cons(h,t) else t)
+
 }
 
 case object Empty extends Stream[Nothing]
