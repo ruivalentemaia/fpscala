@@ -84,6 +84,13 @@ sealed trait Stream[+A] {
 
 	def find(p: A => Boolean) : Option[A] =
 		filter(p).headOptionViaFold
+
+	/*
+	*	Exercise 5.13 - map,take,takeWhile,zipWith and zipAll via unfold.
+	*/
+	def mapUnfold[B](f: A => B) : Stream[B] = 
+		unfold(this)(i => Some((f(i),i)))
+
 }
 
 case object Empty extends Stream[Nothing]
@@ -143,4 +150,5 @@ object Stream {
 
 	def fibsUnfold: Stream[Int] =
 		unfold(0,1)(f => Some(f._1, (f._2,f._1 + f._2)))
+
 }
