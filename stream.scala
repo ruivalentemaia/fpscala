@@ -87,6 +87,36 @@ sealed trait Stream[+A] {
 
 	/*
 	*	Exercise 5.13 - map,take,takeWhile,zipWith and zipAll via unfold.
+	*
+	*	mapUnfold input example:
+	*	Stream(1,2,3,4,5,6).mapUnfold(i => i * 10).toList
+	*	
+	*	Expected Output:
+	*	List[Int] = List(10,20,30,40,50,60)
+	*
+	*	takeUnfold input example:
+	*	Stream(1,2,3,4,5,6).takeUnfold(4).toList
+	*
+	*	Expected Output:
+	*	List[Int] = List(1,2,3,4)
+	*
+	*	takeWhileUnfold input example:
+	*	Stream(2,4,6).takeWhileUnfold(i=>i%2==0).toList
+	*
+	*	Expected Output:
+	*	List[Int] = List(2,4,6)
+	*
+	*	zipWith input example:
+	*	Stream(1,2,3,4,5,6).zipWith(Stream(7,8,9,10,11,12))((x,y) => x + y).toList
+	*
+	*	Expected Output:
+	*	List[Int] = List(8,10,12,14,16,18)
+	*
+	*	zipAll input example:
+	*	Stream(1,2).zipAll(Stream(5,6,7)).toList
+	*
+	*	Expected Output:
+	*	List(Option[Int], Option[Int]) = List((Some(1), Some(5), (Some(2), Some(6)), (None, Some(7))))
 	*/
 	def mapUnfold[B](f: A => B) : Stream[B] = unfold(this) {
 		case Cons(h,t) => Some(f(h()),t())
@@ -100,7 +130,7 @@ sealed trait Stream[+A] {
 	}
 
 	def takeWhileUnfold(p: A => Boolean) : Stream[A] = unfold(this) {
-		case Cons(h,t) => if(p(h())) Some((h(),t())) else Some((h(),t().takeWhileUnfold(p)))
+		case Cons(h,t) if(p(h())) => Some((h(),t()))
 		case _ => None
 	}
 
@@ -115,7 +145,6 @@ sealed trait Stream[+A] {
 		case (Empty, Cons(h2,t2)) => Some(((None, (Some(h2())))),((empty,t2()))) 
 		case _ => None
 	}
-
 }
 
 case object Empty extends Stream[Nothing]
